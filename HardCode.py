@@ -4,7 +4,7 @@ from cryptography.fernet import Fernet
 import random
 import pathlib
 
-vec = os.listdir('E:\BackVeritas/')
+vec = os.listdir('E:\Veritas/')
 print(vec)
 
 header = ['Name_of_File', 'Key', 'Node']
