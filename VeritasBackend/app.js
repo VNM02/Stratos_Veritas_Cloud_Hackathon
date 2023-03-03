@@ -27,7 +27,7 @@ app.post('/',(req,res)=>{
 			}
 		})
 	}
-})
+});
 var PORT=5500
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
