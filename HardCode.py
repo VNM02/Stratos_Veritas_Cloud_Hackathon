@@ -47,5 +47,4 @@ for x in vec:
     
     shutil.move(pa, location[node])   
     print("Success!!!")
-
         
