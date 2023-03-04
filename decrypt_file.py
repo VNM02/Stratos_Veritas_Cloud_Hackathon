@@ -23,7 +23,7 @@ for i in range(0, len(list_of_csv)):
         # rev_list = file_path.split('\\').reverse()
         file_name = file_path[2] #TODO this needs to be generalised
         
-
+ 
         key = list_of_csv[i][1]
         fernet = Fernet(key)
         print(file_name)

