@@ -6,35 +6,44 @@ import pathlib
 import pandas as pd 
 import shutil
 #'E:\Veritas\Files/'
-vec = os.listdir('D:\Files/')
+vec = os.listdir(
+    os.getcwd() + "/Files"
+)
 print(vec)
 
 data_frame=pd.DataFrame(columns=['File','Key','Node'])
 
-location=["D:\\NODE1" , "D:\\NODE2" , "D:\\NODE3"]
+# location=["D:\\NODE1" , "D:\\NODE2" , "D:\\NODE3"]
+location = [os.getcwd() + "/NODE1", os.getcwd() + "/NODE2", os.getcwd() + "/NODE3"]
 
 for x in vec:
     key = Fernet.generate_key()
     fernet = Fernet(key)  
-    with open('D:\Files\{}'.format(x), 'rb') as file:
+    with open(
+        os.getcwd() + "/Files/" + x, 'rb'
+        ) as file:
         original = file.read()
 
-    with open('D:\Veritas Hackathon\Stratos_Veritas\hash.key', 'wb') as filekey:
-        filekey.write(key)
+    # with open('D:\Veritas Hackathon\Stratos_Veritas\hash.key', 'wb') as filekey:
+    #     filekey.write(key)
 
     encrypted = fernet.encrypt(original)
 
-    with open('D:\Files\{}'.format(x), 'wb') as encrypted_file:
+    with open(
+        os.getcwd() + "/Files/" + x
+        , 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
      
     l=len(location)
     node=random.randint(0,2)
     
     data=[]
-    pa=os.path.abspath('D:\Files\{}'.format(x))
+    pa=os.path.abspath(
+        os.getcwd() + "/Files/" + x
+    )
     # pa=os.path.abspath(x)
     data.append(pa)
-    # print(os.path.abspath(x))
+    # print(os.path.abspath(x))``
     data.append(key.decode('utf-8'))
     # print(key)
     data.append(node)
